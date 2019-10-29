@@ -10,10 +10,10 @@ class Observer(Role):
         self.adapter = adapter
         self.adapter.on_advertising_data = on_advertising_data
 
-    def start(self):
+    def start(self, filter_duplicates=False):
         """ Start the observer """
 
-        self.adapter.start_scanning()
+        self.adapter.start_scanning(filter_duplicates)
 
     def stop(self):
         self.adapter.stop_scanning()

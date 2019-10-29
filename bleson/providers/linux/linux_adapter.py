@@ -272,11 +272,11 @@ class BluetoothHCIAdapter(Adapter):
         else:
             log.warning("TODO: Unhandled HCI packet, type={}".format(data[0]))
 
-    def start_scanning(self):
+    def start_scanning(self, filter_duplicates=False):
         self.set_scan_enable(False)
         self.set_scan_filter()
         self.set_scan_parameters()
-        self.set_scan_enable(True, False)
+        self.set_scan_enable(True, filter_duplicates)
 
     def stop_scanning(self):
         self.set_scan_enable(False)
